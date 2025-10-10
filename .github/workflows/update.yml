@@ -1,0 +1,43 @@
+name: Run Sony Token Script
+
+# Trigger workflow manually or on schedule
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:   # Manual trigger
+  schedule:           # Cron schedule: every 1 hour
+    - cron: '0 * * * *'
+
+jobs:
+  run-as:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout repo
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2️⃣ Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      # 3️⃣ Install dependencies (if any)
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      # 4️⃣ Run the script
+      - name: Run as.py
+        run: |
+          python as.py
+
+      # 5️⃣ Save output as artifact
+      - name: Upload as.txt
+        uses: actions/upload-artifact@v3
+        with:
+          name: sony-token
+          path: as.txt
