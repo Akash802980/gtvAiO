@@ -1,43 +1,33 @@
-name: Run Sony Token Script
+name: Auto Update M3U
 
-# Trigger workflow manually or on schedule
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:   # Manual trigger
-  schedule:           # Cron schedule: every 1 hour
-    - cron: '0 * * * *'
+  schedule:
+    - cron: "0 */6 * * *"   # Har 6 ghante UTC pe run hoga (00:00, 06:00, 12:00, 18:00)
+  workflow_dispatch:        # manually bhi run kar sakte ho
 
 jobs:
-  run-as:
+  update:
     runs-on: ubuntu-latest
-
     steps:
-      # 1️⃣ Checkout repo
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      # 2️⃣ Setup Python
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.x'
 
-      # 3️⃣ Install dependencies (if any)
-      - name: Install dependencies
+      - name: Install deps
         run: |
-          python -m pip install --upgrade pip
-          pip install requests
+          pip install requests cloudscraper
 
-      # 4️⃣ Run the script
-      - name: Run as.py
+      - name: Run update script
+        run: python as.py
+
+      - name: Commit & Push changes
         run: |
-          python as.py
-
-      # 5️⃣ Save output as artifact
-      - name: Upload as.txt
-        uses: actions/upload-artifact@v3
-        with:
-          name: sony-token
-          path: as.txt
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add as.txt
+          git commit -m "Auto update playlist" || echo "No changes to commit"
+          git push
