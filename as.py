@@ -34,7 +34,7 @@ if videoURL:
 
 # Save to as.txt
 with open("as.txt", "w") as f:
-    f.write(f"hdnea: {hdnea}\n")
+    f.write(f"videoURL: {videoURL}\nhdnea: {hdnea}\n")
 
 print("Saved token to as.txt")
 print(f"videoURL: {videoURL}")
