@@ -1,0 +1,8 @@
+services:
+  - type: cron
+    name: sony-hdnea-updater
+    env: python
+    plan: free
+    schedule: "0 */3 * * *"   # Every 3 hours
+    startCommand: "python as.py"
+    
