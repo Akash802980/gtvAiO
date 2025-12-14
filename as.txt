@@ -1,2 +1,2 @@
-videoURL: https://securetoken.sonyliv.com/DASH/83d0b09092e24509abb54d0435f1e6b4/1759221032/baseline-std-v4/Show_set_Kaun_Banega_Crorepati_Season_17_E0036_IND_29092025_hin_baseline-800300010.mpd?hdnea=exp=1765737406~acl=/*~id=63443913738819609123474196249881~hmac=1a3ef67f105015f0c56c31aa6e03d6d2eafb71dfd5bb0d4e1334fc976a5bb51c
-hdnea: exp=1765737406~acl=/*~id=63443913738819609123474196249881~hmac=1a3ef67f105015f0c56c31aa6e03d6d2eafb71dfd5bb0d4e1334fc976a5bb51c
+videoURL: https://sonynondrmvod.akamaized.net/DASH/83d0b09092e24509abb54d0435f1e6b4/1759221032/baseline-std-v4/Show_set_Kaun_Banega_Crorepati_Season_17_E0036_IND_29092025_hin_baseline-800300010.mpd?hdnea=exp=1765759751~acl=/*~id=22226049825178019004766444940398~hmac=31a8da029c071ad959b6d0afff1a0a32fd8f81facf4e6268231f554d1e8e0cf0
+hdnea: exp=1765759751~acl=/*~id=22226049825178019004766444940398~hmac=31a8da029c071ad959b6d0afff1a0a32fd8f81facf4e6268231f554d1e8e0cf0
